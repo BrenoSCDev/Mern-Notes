@@ -1,0 +1,8 @@
+20230815	09:44:19	76162663-b6ed-4941-83f4-1addef27d1be	GET	/	undefined
+20230815	09:44:19	b49cb423-41e2-4a3a-8ad3-5805bc0e7dad	GET	/css/style.css	undefined
+20230815	09:44:19	a2f2fbbe-37d2-422d-bf2a-01e8200b836b	GET	/favicon.ico	undefined
+20230815	10:21:44	ef281df5-b7d8-4b63-abdd-06b41c090ed4	GET	/css/style.css	undefined
+20230815	10:22:19	aa61fd83-dff6-4d76-8a7b-1dd1372db3e5	GET	/	undefined
+20230815	10:24:44	1d4f1fc5-3358-4b1f-bf98-459e11c344ee	OPTIONS	/	https://www.google.com
+20230815	10:24:45	11840f72-6210-47c0-a114-cbcf6a8b1f44	GET	/	https://www.google.com
+20230815	16:55:12	f5429d33-c7f0-4f34-ba5c-088f60b0a7f1	GET	/users	undefined
