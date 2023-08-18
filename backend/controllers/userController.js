@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 
 const getAllUsers = asyncHandler (async (req, res) => {
     const users = await User.find().select('-password').lean()
-    if (!users){
+    if (!users?.length){
         return res.status(400).json({message: 'No Users Found'})
     }
     res.json(users)
@@ -29,14 +29,16 @@ const createNewUsers = asyncHandler (async (req, res) => {
     const user = await User.create(userData)
 
     if (user){
-        res.status(201).json({})
+        res.status(201).json({ message: "New user created" })
     } else {
         res.status(400).json({ message: 'Invalid user data received'})
     }
 })
 
 const updateUser = asyncHandler( async (req, res) => {
-    const { id, username, roles, active, password } = req.body
+    const id = req.body
+    const { username, roles, active, password } = req.body
+    console.log(id)
 
     if ( !id || !username || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean' ){
         return res.status(400).json({message: 'All fields are required'})
@@ -65,13 +67,14 @@ const updateUser = asyncHandler( async (req, res) => {
 })
 
 const deleteUsers = asyncHandler (async (req, res) => {
-    const { id } = req.body
-    if(!id){
+    const id = req.body
+    console.log('Received ID:', id);
+    if( id === ""){
         return res.status(400).json({message: "User ID required"})
     }
 
     const notes = await Note.findOne({user: id}).lean().exec()
-    if(notes?.length){
+    if(notes){
         return res.status(400).json({message: 'User has assigned notes'})
     }
 
